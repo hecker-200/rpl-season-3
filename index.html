@@ -3,947 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RPL Season III — Official Fixture Schedule. 4-day knockout cricket night matches from League stage through Play-in, Quarters, Semis to the Grand Final.">
-<meta property="og:title" content="RPL Season III — Fixture Schedule">
-<meta property="og:description" content="4-day fixture list · League stage → Play-in → Knockouts → Grand Final">
-<meta property="og:type" content="website">
-<title>RPL Season III — Fixture Schedule</title>
+<title>Match Schedule</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   TOKENS and RESET
-   ============================================================ */
-:root {
-  --bg:           #07100B;
-  --bg-alt:       #0B160F;
-  --card:         #0F1A13;
-  --card-hover:   #142019;
-  --line:         rgba(255,255,255,0.06);
-  --line-strong:  rgba(255,255,255,0.13);
-  --turf:         #5FD547;
-  --turf-glow:    rgba(95,213,71,0.35);
-  --turf-dim:     #3A7E2A;
-  --amber:        #F5BD18;
-  --amber-dim:    rgba(245,189,24,0.18);
-  --text:         #EDF3EA;
-  --text-dim:     #8FA494;
-  --text-faint:   #4A5C50;
-  --pool-c:       #5B9CF6;
-  --playin-c:     #B97EFF;
-  --qf-c:         #F5BD18;
-  --sf-c:         #F28B5A;
-  --third-c:      #748880;
-  --final-c:      #5FD547;
-  --radius-card:  12px;
-  --radius-pill:  999px;
-  --font-mono:    'Space Mono', monospace;
-  --font-display: 'Anton', sans-serif;
-  --font-body:    'Inter', sans-serif;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+  :root{
+    --turf:#0D1912;
+    --turf-2:#122519;
+    --line:#294530;
+    --floodlight:#FFC93C;
+    --floodlight-dim:#B08A24;
+    --red:#FF5A4E;
+    --red-dim:#7A2E28;
+    --cream:#F3EFE3;
+    --muted:#8FA396;
+  }
 
-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  padding-bottom: 100px;
-  overflow-x: hidden;
-}
+  *{box-sizing:border-box;}
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none;
-  z-index: 0;
-}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 10% -10%, rgba(255,201,60,0.10), transparent 60%),
+      radial-gradient(ellipse 900px 500px at 90% 0%, rgba(255,201,60,0.08), transparent 60%),
+      var(--turf);
+    color:var(--cream);
+    font-family:'Barlow', sans-serif;
+    padding:56px 20px 90px;
+  }
 
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero {
-  position: relative;
-  padding: 80px 24px 56px;
-  text-align: center;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line);
-}
+  .wrap{max-width:760px;margin:0 auto;}
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 900px; height: 500px;
-  background: radial-gradient(ellipse, rgba(95,213,71,0.12) 0%, transparent 65%);
-  pointer-events: none;
-  animation: pulse-glow 4s ease-in-out infinite;
-}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--floodlight-dim);
+    margin:0 0 10px;
+  }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(300px 300px at -5% -5%,  rgba(245,189,24,0.09), transparent 70%),
-    radial-gradient(300px 300px at 105% -5%, rgba(245,189,24,0.09), transparent 70%);
-  pointer-events: none;
-}
+  h1{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    font-size:52px;
+    letter-spacing:0.01em;
+    margin:0 0 6px;
+    color:var(--cream);
+    text-shadow:0 0 40px rgba(255,201,60,0.18);
+  }
 
-@keyframes pulse-glow {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.65; }
-}
+  .subhead{
+    color:var(--muted);
+    font-size:15px;
+    margin:0 0 48px;
+  }
 
-.hero-inner { position: relative; z-index: 1; }
+  .day{
+    margin-bottom:44px;
+  }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  color: var(--amber);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.eyebrow::before, .eyebrow::after {
-  content: "";
-  display: block;
-  width: 28px; height: 1px;
-  background: var(--amber);
-  opacity: 0.5;
-}
+  .day-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:18px;
+  }
 
-h1 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(52px, 11vw, 108px);
-  line-height: 0.88;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  background: linear-gradient(170deg, #FFFFFF 10%, #A6C5AB 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: 8px;
-}
-h1 .accent {
-  background: linear-gradient(170deg, var(--turf) 0%, #3ABA1E 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: block;
-  filter: drop-shadow(0 0 40px rgba(95,213,71,0.4));
-}
+  .day-head .num{
+    font-family:'Anton', sans-serif;
+    font-size:34px;
+    color:var(--floodlight);
+    line-height:1;
+  }
 
-.season-tag {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  color: var(--text-faint);
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-pill);
-  padding: 5px 14px;
-  margin-bottom: 22px;
-  text-transform: uppercase;
-}
+  .day-head .rule{
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg, var(--line), transparent);
+  }
 
-.subhead {
-  font-size: 15px;
-  color: var(--text-dim);
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-.subhead strong { color: var(--text); font-weight: 600; }
+  .match{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:18px;
+    align-items:center;
+    padding:14px 16px;
+    border-left:2px solid var(--line);
+    background:rgba(255,255,255,0.015);
+    margin-bottom:2px;
+    transition:background 0.15s ease;
+  }
 
-.flow-steps {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  margin-top: 28px;
-  flex-wrap: wrap;
-}
-.flow-step {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 7px 14px;
-  border-radius: var(--radius-pill);
-  white-space: nowrap;
-  font-weight: 700;
-}
-.flow-arrow {
-  color: var(--text-faint);
-  font-size: 12px;
-  padding: 0 4px;
-}
-.fs-pool   { background: rgba(91,156,246,0.14); color: var(--pool-c); border: 1px solid rgba(91,156,246,0.3); }
-.fs-playin { background: rgba(185,126,255,0.14); color: var(--playin-c); border: 1px solid rgba(185,126,255,0.3); }
-.fs-qf     { background: rgba(245,189,24,0.13); color: var(--qf-c); border: 1px solid rgba(245,189,24,0.3); }
-.fs-sf     { background: rgba(242,139,90,0.14); color: var(--sf-c); border: 1px solid rgba(242,139,90,0.3); }
-.fs-final  { background: rgba(95,213,71,0.14); color: var(--final-c); border: 1px solid rgba(95,213,71,0.35); }
+  .match:hover{background:rgba(255,201,60,0.04);}
 
-.stat-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 36px;
-  flex-wrap: wrap;
-}
-.stat-pill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--line-strong);
-  border-radius: 10px;
-  padding: 14px 24px;
-  min-width: 90px;
-}
-.stat-pill .num {
-  font-family: var(--font-display);
-  font-size: 28px;
-  line-height: 1;
-  color: var(--turf);
-}
-.stat-pill .lbl {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.1em;
-  color: var(--text-faint);
-  text-transform: uppercase;
-}
+  .match.knockout{
+    border-left:2px solid var(--red-dim);
+  }
 
-/* ============================================================
-   DAY NAV
-   ============================================================ */
-.daynav {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 20px;
-  background: rgba(7,16,11,0.92);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
-  border-bottom: 1px solid var(--line);
-  flex-wrap: wrap;
-}
+  .match.final{
+    border-left:2px solid var(--red);
+    background:rgba(255,90,78,0.06);
+  }
 
-.daynav button {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  background: transparent;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-pill);
-  padding: 10px 22px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-}
-.daynav button:hover {
-  color: var(--text);
-  border-color: var(--turf-dim);
-}
-.daynav button.active {
-  color: #081409;
-  background: var(--turf);
-  border-color: var(--turf);
-  font-weight: 700;
-  box-shadow: 0 0 22px rgba(95,213,71,0.3);
-}
+  .time{
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    color:var(--floodlight-dim);
+    letter-spacing:0.02em;
+  }
 
-.nav-day-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  color: var(--text-faint);
-  display: block;
-  margin-top: 2px;
-  text-transform: uppercase;
-}
-.daynav button.active .nav-day-label { color: rgba(8,20,9,0.65); }
+  .final .time, .knockout .time{
+    color:var(--red);
+  }
 
-/* ============================================================
-   CONTENT WRAP
-   ============================================================ */
-.wrap {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 40px 20px 0;
-  position: relative;
-  z-index: 1;
-}
+  .teams{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
 
-.day-panel { display: none; }
-.day-panel.active {
-  display: block;
-  animation: panel-in 0.3s cubic-bezier(0.22,1,0.36,1) both;
-}
-@keyframes panel-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+  .team{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    font-size:17px;
+    letter-spacing:0.01em;
+    color:var(--cream);
+  }
 
-.day-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.day-title h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 30px;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: var(--text);
-}
-.day-title .meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.day-title .count {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-faint);
-  letter-spacing: 0.05em;
-}
+  .vs{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:0.08em;
+  }
 
-.section-divider {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 28px 0 18px;
-}
-.section-divider .label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  white-space: nowrap;
-}
-.section-divider::before, .section-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
+  .tag{
+    font-family:'Space Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.06em;
+    color:var(--red);
+    border:1px solid var(--red-dim);
+    padding:2px 7px;
+    border-radius:3px;
+    margin-right:2px;
+  }
 
-/* ============================================================
-   MATCH CARD
-   ============================================================ */
-.match {
-  display: grid;
-  grid-template-columns: 82px 1fr auto;
-  align-items: center;
-  gap: 0;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-  padding: 0;
-  margin-bottom: 8px;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-  overflow: hidden;
-}
-.match:hover {
-  background: var(--card-hover);
-  border-color: var(--line-strong);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-}
+  .final .tag{
+    color:var(--turf);
+    background:var(--red);
+    border-color:var(--red);
+  }
 
-.time {
-  padding: 16px 14px;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  color: var(--text-faint);
-  line-height: 1.5;
-  white-space: nowrap;
-  border-right: 1px solid var(--line);
-  background: rgba(0,0,0,0.15);
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.time .start { color: var(--text-dim); font-weight: 700; font-size: 13px; }
-.time .end   { color: var(--text-faint); margin-top: 2px; }
+  .final .team{
+    font-size:20px;
+  }
 
-.teams-col {
-  padding: 14px 16px;
-  min-width: 0;
-}
-.match-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--amber);
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  display: block;
-}
-.teams {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  font-size: 15px;
-  flex-wrap: wrap;
-}
-.t { white-space: nowrap; }
-.vs {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--text-faint);
-  font-weight: 400;
-  letter-spacing: 0.05em;
-}
-
-.badge-col {
-  padding: 14px 16px;
-  border-left: 1px solid var(--line);
-  background: rgba(0,0,0,0.1);
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.badge {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: var(--radius-pill);
-  white-space: nowrap;
-  font-weight: 700;
-  display: block;
-  text-align: center;
-}
-.badge.pool   { background: rgba(91,156,246,0.13);  color: var(--pool-c);   border: 1px solid rgba(91,156,246,0.3); }
-.badge.playin { background: rgba(185,126,255,0.13); color: var(--playin-c); border: 1px solid rgba(185,126,255,0.3); }
-.badge.qf     { background: rgba(245,189,24,0.12);  color: var(--qf-c);     border: 1px solid rgba(245,189,24,0.3); }
-.badge.sf     { background: rgba(242,139,90,0.13);  color: var(--sf-c);     border: 1px solid rgba(242,139,90,0.3); }
-.badge.third  { background: rgba(116,136,128,0.1);  color: var(--third-c);  border: 1px solid rgba(116,136,128,0.25); }
-.badge.final  { background: rgba(95,213,71,0.14);   color: var(--final-c);  border: 1px solid rgba(95,213,71,0.38); }
-.badge.buffer { background: transparent; color: var(--text-faint); border: 1px dashed rgba(255,255,255,0.1); }
-
-.match.buffer-row {
-  background: transparent;
-  border-style: dashed;
-  border-color: rgba(255,255,255,0.05);
-  opacity: 0.6;
-}
-.match.buffer-row .teams { color: var(--text-faint); font-weight: 400; font-size: 13px; font-style: italic; }
-.match.buffer-row:hover  { background: transparent; box-shadow: none; }
-
-.match.marquee {
-  border-color: rgba(95,213,71,0.4);
-  background: linear-gradient(90deg, rgba(95,213,71,0.1) 0%, var(--card) 50%);
-  box-shadow: 0 0 0 1px rgba(95,213,71,0.15), 0 8px 40px rgba(95,213,71,0.1);
-}
-.match.marquee .teams { font-size: 18px; font-weight: 700; }
-.match.marquee:hover  { border-color: rgba(95,213,71,0.6); box-shadow: 0 0 0 1px rgba(95,213,71,0.2), 0 12px 50px rgba(95,213,71,0.18); }
-
-.match.qf-match    { border-left: 3px solid rgba(245,189,24,0.7); }
-.match.sf-match    { border-left: 3px solid rgba(242,139,90,0.7); }
-.match.marquee     { border-left: 3px solid var(--turf); }
-.match.third-match { border-left: 3px solid rgba(116,136,128,0.5); }
-.match.playin-match{ border-left: 3px solid rgba(185,126,255,0.6); }
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-footer {
-  max-width: 780px;
-  margin: 60px auto 0;
-  padding: 24px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  border-top: 1px solid var(--line);
-  position: relative;
-  z-index: 1;
-  flex-wrap: wrap;
-}
-.footer-logo {
-  font-family: var(--font-display);
-  font-size: 20px;
-  letter-spacing: 0.05em;
-  color: var(--turf);
-  text-transform: uppercase;
-}
-.footer-dot { color: var(--text-faint); }
-.footer-text {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  color: var(--text-faint);
-  letter-spacing: 0.06em;
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 520px) {
-  .match { grid-template-columns: 68px 1fr; }
-  .badge-col { grid-column: 1 / 3; border-left: none; border-top: 1px solid var(--line); justify-content: flex-start; padding: 10px 16px; background: transparent; }
-  .teams { font-size: 13.5px; }
-  .match.marquee .teams { font-size: 15px; }
-  .stat-pill { padding: 12px 18px; min-width: 76px; }
-  .stat-pill .num { font-size: 24px; }
-  h1 { font-size: clamp(44px, 14vw, 72px); }
-  .flow-steps { gap: 4px; }
-  .flow-step { font-size: 9.5px; padding: 6px 10px; }
-}
-
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--turf-dim); }
+  @media (max-width:520px){
+    h1{font-size:38px;}
+    .match{grid-template-columns:76px 1fr;padding:12px 10px;}
+    .team{font-size:15px;}
+  }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-inner">
-    <div class="eyebrow">Knockout Cricket &middot; Night Matches</div>
-    <div class="season-tag">Season III &middot; Official Schedule</div>
-    <h1>RPL <span class="accent">III</span></h1>
+  <p class="eyebrow">Tournament Fixture</p>
+  <h1>Match Schedule</h1>
+  <p class="subhead">Four days &middot; group stage through final</p>
 
-    <div class="flow-steps">
-      <span class="flow-step fs-pool">Pool Stage</span>
-      <span class="flow-arrow">&#8594;</span>
-      <span class="flow-step fs-playin">Play-in</span>
-      <span class="flow-arrow">&#8594;</span>
-      <span class="flow-step fs-qf">Quarters</span>
-      <span class="flow-arrow">&#8594;</span>
-      <span class="flow-step fs-sf">Semis</span>
-      <span class="flow-arrow">&#8594;</span>
-      <span class="flow-step fs-final">Grand Final</span>
-    </div>
-
-    <div class="stat-row">
-      <div class="stat-pill">
-        <span class="num">4</span>
-        <span class="lbl">Match Days</span>
-      </div>
-      <div class="stat-pill">
-        <span class="num">16</span>
-        <span class="lbl">Teams</span>
-      </div>
-      <div class="stat-pill">
-        <span class="num">34</span>
-        <span class="lbl">Total Matches</span>
-      </div>
-      <div class="stat-pill">
-        <span class="num">1</span>
-        <span class="lbl">Champion</span>
-      </div>
-    </div>
+  <div class="day">
+    <div class="day-head"><span class="num">Day 1</span><span class="rule"></span></div>
+    <div class="match"><span class="time">7:00&ndash;7:35 PM</span><span class="teams"><span class="team">Damn Son</span><span class="vs">vs</span><span class="team">Redball</span></span></div>
+    <div class="match"><span class="time">7:35&ndash;8:10 PM</span><span class="teams"><span class="team">Y3</span><span class="vs">vs</span><span class="team">Defenders</span></span></div>
+    <div class="match"><span class="time">8:10&ndash;8:45 PM</span><span class="teams"><span class="team">G2 Lions</span><span class="vs">vs</span><span class="team">Paisan Warriors</span></span></div>
+    <div class="match"><span class="time">8:45&ndash;9:20 PM</span><span class="teams"><span class="team">Super Seven</span><span class="vs">vs</span><span class="team">Redball</span></span></div>
+    <div class="match"><span class="time">9:20&ndash;9:55 PM</span><span class="teams"><span class="team">Y3</span><span class="vs">vs</span><span class="team">Duck Hunters</span></span></div>
+    <div class="match"><span class="time">9:55&ndash;10:30 PM</span><span class="teams"><span class="team">G2 Lions</span><span class="vs">vs</span><span class="team">Elite Strikers</span></span></div>
+    <div class="match"><span class="time">10:30&ndash;11:05 PM</span><span class="teams"><span class="team">Super Seven</span><span class="vs">vs</span><span class="team">Damn Son</span></span></div>
+    <div class="match"><span class="time">11:05&ndash;11:40 PM</span><span class="teams"><span class="team">Team G6</span><span class="vs">vs</span><span class="team">Lagaan Pending</span></span></div>
+    <div class="match"><span class="time">11:40 PM&ndash;12:15 AM</span><span class="teams"><span class="team">Elite Strikers</span><span class="vs">vs</span><span class="team">Lagaan Pending</span></span></div>
   </div>
-</header>
 
-<!-- DAY NAV -->
-<nav class="daynav" id="daynav" aria-label="Day navigation">
-  <button id="btn-1" data-day="1" class="active" aria-selected="true">
-    Day 1
-    <span class="nav-day-label">10 matches</span>
-  </button>
-  <button id="btn-2" data-day="2" aria-selected="false">
-    Day 2
-    <span class="nav-day-label">12 matches</span>
-  </button>
-  <button id="btn-3" data-day="3" aria-selected="false">
-    Day 3
-    <span class="nav-day-label">Quarters</span>
-  </button>
-  <button id="btn-4" data-day="4" aria-selected="false">
-    Day 4
-    <span class="nav-day-label">Grand Final</span>
-  </button>
-</nav>
+  <div class="day">
+    <div class="day-head"><span class="num">Day 2</span><span class="rule"></span></div>
+    <div class="match"><span class="time">6:00&ndash;6:35 PM</span><span class="teams"><span class="team">Super Seven</span><span class="vs">vs</span><span class="team">Neelkanth</span></span></div>
+    <div class="match"><span class="time">6:35&ndash;7:10 PM</span><span class="teams"><span class="team">Y3</span><span class="vs">vs</span><span class="team">Spirit</span></span></div>
+    <div class="match"><span class="time">7:10&ndash;7:45 PM</span><span class="teams"><span class="team">G2 Lions</span><span class="vs">vs</span><span class="team">Team G6</span></span></div>
+    <div class="match"><span class="time">7:45&ndash;8:20 PM</span><span class="teams"><span class="team">Neelkanth</span><span class="vs">vs</span><span class="team">Challengers</span></span></div>
+    <div class="match"><span class="time">8:20&ndash;8:55 PM</span><span class="teams"><span class="team">Super Seven</span><span class="vs">vs</span><span class="team">Challengers</span></span></div>
+    <div class="match"><span class="time">8:55&ndash;9:30 PM</span><span class="teams"><span class="team">Y3</span><span class="vs">vs</span><span class="team">Titans</span></span></div>
+    <div class="match"><span class="time">9:30&ndash;10:05 PM</span><span class="teams"><span class="team">Duck Hunters</span><span class="vs">vs</span><span class="team">Titans</span></span></div>
+    <div class="match"><span class="time">10:05&ndash;10:40 PM</span><span class="teams"><span class="team">Damn Son</span><span class="vs">vs</span><span class="team">Neelkanth</span></span></div>
+    <div class="match"><span class="time">10:40&ndash;11:15 PM</span><span class="teams"><span class="team">Paisan Warriors</span><span class="vs">vs</span><span class="team">Elite Strikers</span></span></div>
+    <div class="match"><span class="time">11:15&ndash;11:50 PM</span><span class="teams"><span class="team">G2 Lions</span><span class="vs">vs</span><span class="team">Lagaan Pending</span></span></div>
+  </div>
 
-<!-- CONTENT -->
-<main class="wrap">
+  <div class="day">
+    <div class="day-head"><span class="num">Day 3</span><span class="rule"></span></div>
+    <div class="match"><span class="time">6:00&ndash;6:35 PM</span><span class="teams"><span class="team">Defenders</span><span class="vs">vs</span><span class="team">Duck Hunters</span></span></div>
+    <div class="match"><span class="time">6:35&ndash;7:10 PM</span><span class="teams"><span class="team">Paisan Warriors</span><span class="vs">vs</span><span class="team">Team G6</span></span></div>
+    <div class="match"><span class="time">7:10&ndash;7:45 PM</span><span class="teams"><span class="team">Spirit</span><span class="vs">vs</span><span class="team">Titans</span></span></div>
+    <div class="match"><span class="time">7:45&ndash;8:20 PM</span><span class="teams"><span class="team">Redball</span><span class="vs">vs</span><span class="team">Challengers</span></span></div>
+    <div class="match"><span class="time">8:20&ndash;8:55 PM</span><span class="teams"><span class="team">Defenders</span><span class="vs">vs</span><span class="team">Spirit</span></span></div>
+    <div class="match knockout"><span class="time">9:00&ndash;9:35 PM</span><span class="teams"><span class="tag">Q7 &middot; Wild Card </span><span class="vs">vs</span><span class="team">B3</span></span></div>
+    <div class="match knockout"><span class="time">9:35&ndash;10:10 PM</span><span class="teams"><span class="tag">Q8</span><span class="team">A3</span><span class="vs">vs</span><span class="team">C3</span></span></div>
+    <div class="match knockout"><span class="time">10:10&ndash;10:45 PM</span><span class="teams"><span class="tag">QF1</span><span class="team">A1</span><span class="vs">vs</span><span class="team">Winner Q8</span></span></div>
+    <div class="match knockout"><span class="time">10:45&ndash;11:20 PM</span><span class="teams"><span class="tag">QF2</span><span class="team">B1</span><span class="vs">vs</span><span class="team">Winner Q7</span></span></div>
+    <div class="match knockout"><span class="time">11:20&ndash;11:55 PM</span><span class="teams"><span class="tag">QF3</span><span class="team">C1</span><span class="vs">vs</span><span class="team">A2</span></span></div>
+  </div>
 
-  <!-- DAY 1 -->
-  <section class="day-panel active" id="day-1" aria-labelledby="d1-title">
-    <div class="day-title">
-      <h2 id="d1-title">Day 1</h2>
-      <div class="meta"><span class="count">10 Pool Matches</span></div>
-    </div>
+  <div class="day">
+    <div class="day-head"><span class="num">Day 4</span><span class="rule"></span></div>
+    <div class="match knockout"><span class="time">6:00&ndash;6:40 PM</span><span class="teams"><span class="tag">QF4</span><span class="team">B2</span><span class="vs">vs</span><span class="team">C2</span></span></div>
+    <div class="match knockout"><span class="time">6:40&ndash;7:20 PM</span><span class="teams"><span class="tag">SF1</span><span class="team">Winner QF1</span><span class="vs">vs</span><span class="team">Winner QF2</span></span></div>
+    <div class="match knockout"><span class="time">7:20&ndash;8:00 PM</span><span class="teams"><span class="tag">SF2</span><span class="team">Winner QF3</span><span class="vs">vs</span><span class="team">Winner QF4</span></span></div>
+    <div class="match knockout"><span class="time">8:00&ndash;8:40 PM</span><span class="teams"><span class="tag">3rd</span><span class="team">Loser SF1</span><span class="vs">vs</span><span class="team">Loser SF2</span></span></div>
+    <div class="match final"><span class="time">8:40&ndash;9:20 PM</span><span class="teams"><span class="tag">Final</span><span class="team">Winner SF1</span><span class="vs">vs</span><span class="team">Winner SF2</span></span></div>
+  </div>
 
-    <div class="match">
-      <div class="time"><span class="start">7:00</span><span class="end">7:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Super Seven</span><span class="vs">VS</span><span class="t">Damn Son</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">7:30</span><span class="end">8:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Y3</span><span class="vs">VS</span><span class="t">Defenders</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">8:00</span><span class="end">8:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">G2 Lions</span><span class="vs">VS</span><span class="t">Paisan Warriors</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">8:30</span><span class="end">9:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Super Seven</span><span class="vs">VS</span><span class="t">Redball</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">9:00</span><span class="end">9:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Y3</span><span class="vs">VS</span><span class="t">Duck Hunters</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">9:30</span><span class="end">10:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">G2 Lions</span><span class="vs">VS</span><span class="t">Elite Strikers</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">10:00</span><span class="end">10:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Super Seven</span><span class="vs">VS</span><span class="t">Neelkanth</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">10:30</span><span class="end">11:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Y3</span><span class="vs">VS</span><span class="t">Spirit</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">11:00</span><span class="end">11:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">G2 Lions</span><span class="vs">VS</span><span class="t">Team G6</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">11:30</span><span class="end">12:00 AM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Damn Son</span><span class="vs">VS</span><span class="t">Redball</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match buffer-row">
-      <div class="time"><span class="start">12:00</span><span class="end">12:30 AM</span></div>
-      <div class="teams-col"><div class="teams">Buffer / delay window</div></div>
-      <div class="badge-col"><span class="badge buffer">Buffer</span></div>
-    </div>
-  </section>
-
-  <!-- DAY 2 -->
-  <section class="day-panel" id="day-2" aria-labelledby="d2-title">
-    <div class="day-title">
-      <h2 id="d2-title">Day 2</h2>
-      <div class="meta"><span class="count">12 Pool Matches</span></div>
-    </div>
-
-    <div class="match">
-      <div class="time"><span class="start">6:00</span><span class="end">6:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Super Seven</span><span class="vs">VS</span><span class="t">Challengers</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">6:30</span><span class="end">7:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Y3</span><span class="vs">VS</span><span class="t">Titans</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">7:00</span><span class="end">7:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">G2 Lions</span><span class="vs">VS</span><span class="t">Lagaan Pending</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">7:30</span><span class="end">8:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Damn Son</span><span class="vs">VS</span><span class="t">Neelkanth</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">8:00</span><span class="end">8:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Defenders</span><span class="vs">VS</span><span class="t">Duck Hunters</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">8:30</span><span class="end">9:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Paisan Warriors</span><span class="vs">VS</span><span class="t">Elite Strikers</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">9:00</span><span class="end">9:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Redball</span><span class="vs">VS</span><span class="t">Challengers</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">9:30</span><span class="end">10:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Defenders</span><span class="vs">VS</span><span class="t">Spirit</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">10:00</span><span class="end">10:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Paisan Warriors</span><span class="vs">VS</span><span class="t">Team G6</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">10:30</span><span class="end">11:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Neelkanth</span><span class="vs">VS</span><span class="t">Challengers</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">11:00</span><span class="end">11:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Duck Hunters</span><span class="vs">VS</span><span class="t">Titans</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">11:30</span><span class="end">12:00 AM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Elite Strikers</span><span class="vs">VS</span><span class="t">Lagaan Pending</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match buffer-row">
-      <div class="time"><span class="start">12:00</span><span class="end">12:30 AM</span></div>
-      <div class="teams-col"><div class="teams">Buffer / delay window</div></div>
-      <div class="badge-col"><span class="badge buffer">Buffer</span></div>
-    </div>
-  </section>
-
-  <!-- DAY 3 -->
-  <section class="day-panel" id="day-3" aria-labelledby="d3-title">
-    <div class="day-title">
-      <h2 id="d3-title">Day 3</h2>
-      <div class="meta"><span class="count">2 Pool &middot; 2 Play-in &middot; 4 Quarters</span></div>
-    </div>
-
-    <div class="section-divider"><span class="label">Pool Stage &mdash; Final Matches</span></div>
-
-    <div class="match">
-      <div class="time"><span class="start">6:00</span><span class="end">6:30 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Team G6</span><span class="vs">VS</span><span class="t">Lagaan Pending</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-    <div class="match">
-      <div class="time"><span class="start">6:30</span><span class="end">7:00 PM</span></div>
-      <div class="teams-col"><div class="teams"><span class="t">Spirit</span><span class="vs">VS</span><span class="t">Titans</span></div></div>
-      <div class="badge-col"><span class="badge pool">Pool</span></div>
-    </div>
-
-    <div class="section-divider"><span class="label">Play-in Round</span></div>
-
-    <div class="match playin-match">
-      <div class="time"><span class="start">7:00</span><span class="end">7:30 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">Play-in 1</span>
-        <div class="teams"><span class="t">A3</span><span class="vs">VS</span><span class="t">Wild Card</span></div>
-      </div>
-      <div class="badge-col"><span class="badge playin">Play-in</span></div>
-    </div>
-    <div class="match playin-match">
-      <div class="time"><span class="start">7:30</span><span class="end">8:00 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">Play-in 2</span>
-        <div class="teams"><span class="t">B3</span><span class="vs">VS</span><span class="t">C3</span></div>
-      </div>
-      <div class="badge-col"><span class="badge playin">Play-in</span></div>
-    </div>
-
-    <div class="section-divider"><span class="label">Quarter-finals</span></div>
-
-    <div class="match qf-match">
-      <div class="time"><span class="start">8:00</span><span class="end">8:30 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">QF 1</span>
-        <div class="teams"><span class="t">A1</span><span class="vs">VS</span><span class="t">Q8</span></div>
-      </div>
-      <div class="badge-col"><span class="badge qf">Quarter-final</span></div>
-    </div>
-    <div class="match buffer-row">
-      <div class="time"><span class="start">8:30</span><span class="end">9:00 PM</span></div>
-      <div class="teams-col"><div class="teams">Buffer &mdash; qualification confirmation</div></div>
-      <div class="badge-col"><span class="badge buffer">Buffer</span></div>
-    </div>
-    <div class="match qf-match">
-      <div class="time"><span class="start">9:00</span><span class="end">9:30 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">QF 2</span>
-        <div class="teams"><span class="t">A2</span><span class="vs">VS</span><span class="t">B1</span></div>
-      </div>
-      <div class="badge-col"><span class="badge qf">Quarter-final</span></div>
-    </div>
-    <div class="match qf-match">
-      <div class="time"><span class="start">9:30</span><span class="end">10:00 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">QF 3</span>
-        <div class="teams"><span class="t">B2</span><span class="vs">VS</span><span class="t">C1</span></div>
-      </div>
-      <div class="badge-col"><span class="badge qf">Quarter-final</span></div>
-    </div>
-    <div class="match qf-match">
-      <div class="time"><span class="start">10:00</span><span class="end">10:30 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">QF 4</span>
-        <div class="teams"><span class="t">C2</span><span class="vs">VS</span><span class="t">Q7</span></div>
-      </div>
-      <div class="badge-col"><span class="badge qf">Quarter-final</span></div>
-    </div>
-  </section>
-
-  <!-- DAY 4 -->
-  <section class="day-panel" id="day-4" aria-labelledby="d4-title">
-    <div class="day-title">
-      <h2 id="d4-title">Day 4</h2>
-      <div class="meta"><span class="count">Semis &middot; 3rd Place &middot; Grand Final</span></div>
-    </div>
-
-    <div class="section-divider"><span class="label">Semi-finals</span></div>
-
-    <div class="match sf-match">
-      <div class="time"><span class="start">8:00</span><span class="end">8:30 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">SF 1</span>
-        <div class="teams"><span class="t">Winner QF1</span><span class="vs">VS</span><span class="t">Winner QF2</span></div>
-      </div>
-      <div class="badge-col"><span class="badge sf">Semi-final</span></div>
-    </div>
-    <div class="match sf-match">
-      <div class="time"><span class="start">8:30</span><span class="end">9:00 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">SF 2</span>
-        <div class="teams"><span class="t">Winner QF3</span><span class="vs">VS</span><span class="t">Winner QF4</span></div>
-      </div>
-      <div class="badge-col"><span class="badge sf">Semi-final</span></div>
-    </div>
-    <div class="match buffer-row">
-      <div class="time"><span class="start">9:00</span><span class="end">9:15 PM</span></div>
-      <div class="teams-col"><div class="teams">Buffer / break</div></div>
-      <div class="badge-col"><span class="badge buffer">Break</span></div>
-    </div>
-
-    <div class="section-divider"><span class="label">Third Place Play-off</span></div>
-
-    <div class="match third-match">
-      <div class="time"><span class="start">9:15</span><span class="end">10:00 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">3rd Place</span>
-        <div class="teams"><span class="t">Loser SF1</span><span class="vs">VS</span><span class="t">Loser SF2</span></div>
-      </div>
-      <div class="badge-col"><span class="badge third">3rd Place</span></div>
-    </div>
-    <div class="match buffer-row">
-      <div class="time"><span class="start">10:00</span><span class="end">10:15 PM</span></div>
-      <div class="teams-col"><div class="teams">Buffer / presentation setup</div></div>
-      <div class="badge-col"><span class="badge buffer">Setup</span></div>
-    </div>
-
-    <div class="section-divider"><span class="label">Grand Final</span></div>
-
-    <div class="match marquee">
-      <div class="time"><span class="start">10:15</span><span class="end">11:00 PM</span></div>
-      <div class="teams-col">
-        <span class="match-label">Grand Final &middot; RPL Season III</span>
-        <div class="teams"><span class="t">Winner SF1</span><span class="vs">VS</span><span class="t">Winner SF2</span></div>
-      </div>
-      <div class="badge-col"><span class="badge final">Final</span></div>
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">RPL</span>
-  <span class="footer-dot">&middot;</span>
-  <span class="footer-text">Season III &nbsp;&middot;&nbsp; Fixture Schedule &nbsp;&middot;&nbsp; Night Cricket</span>
-</footer>
-
-<script>
-  (function () {
-    var nav    = document.getElementById('daynav');
-    var btns   = nav.querySelectorAll('button');
-    var panels = document.querySelectorAll('.day-panel');
-
-    function activate(day) {
-      btns.forEach(function(b) {
-        b.classList.toggle('active', b.dataset.day === day);
-        b.setAttribute('aria-selected', b.dataset.day === day ? 'true' : 'false');
-      });
-      panels.forEach(function(p) {
-        p.classList.toggle('active', p.id === 'day-' + day);
-      });
-      // Animate cards in the newly shown panel
-      setTimeout(function() {
-        var cards = document.querySelectorAll('#day-' + day + ' .match');
-        cards.forEach(function(card) {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        });
-      }, 60);
-    }
-
-    // Set staggered initial state for all match cards
-    document.querySelectorAll('.match').forEach(function(card, i) {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(8px)';
-      card.style.transition = 'opacity 0.35s ease ' + (i % 15 * 32) + 'ms, transform 0.35s ease ' + (i % 15 * 32) + 'ms, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease';
-    });
-
-    // Animate day-1 cards immediately
-    setTimeout(function() {
-      document.querySelectorAll('#day-1 .match').forEach(function(card) {
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      });
-    }, 100);
-
-    btns.forEach(function(btn) {
-      btn.addEventListener('click', function() { activate(btn.dataset.day); });
-    });
-
-    // Arrow key navigation
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        var active = nav.querySelector('button.active');
-        var list   = Array.from(btns);
-        var idx    = list.indexOf(active);
-        var next   = e.key === 'ArrowRight'
-          ? list[Math.min(idx + 1, list.length - 1)]
-          : list[Math.max(idx - 1, 0)];
-        if (next && next !== active) { next.click(); next.focus(); }
-      }
-    });
-  })();
-</script>
-
+</div>
 </body>
 </html>
